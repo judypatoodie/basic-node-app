@@ -1,0 +1,49 @@
+1. What is a Node module?
+A:
+A simple or complex functionality organized in single or multiple JavaScript files
+ which can be reused throughout the Node.js application. You can consider modules
+ to be the same as JavaScript libraries. Node modules are loaded by the Node.js
+ require() function.
+
+
+2. What is the main difference between exports and module.exports?
+A:
+Exports is NOT returned by required(), while module.export is! Exports is not
+available outside the module. Module.export is an empty object by default, and
+can be reassigned to anything. Exports is a reference to module.exports; a convenience
+variable to help module authors write less code.
+
+3. Why is using exports recommended?
+A:
+Working with its properties is safe and recommended. If you are not planning for
+your module to be a specific object type, then use exports.
+
+Programming Questions
+
+Before you begin, make sure you have greeting.js and main.js in the following states:
+greeting.js
+
+exports.greetingEnglish = function(){
+ console.log("Hello");
+}
+
+exports.greetingJapanese = function(){
+ console.log("Konichiwa");
+}
+main.js
+
+const greetings = require("./greeting.js");
+
+// "Hello"
+greetings.greetingEnglish();
+
+// "Konichiwa"
+greetings.greetingJapanese();
+
+4. Add two more functions, greetingSpanish and greetingIcelandic, in greeting.js.
+
+5. Utilize the two functions in main.js just like greetingEnglish and greetingJapanese.
+
+6. Create another Node module and import it into main.js. Your Node module should have at
+least two functions within it. Then, call a function from your Node module in main.js.
+Submit basic_node_app_answers.txt and your three .js files.
